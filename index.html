@@ -7,6 +7,7 @@
     <style>
         body {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
@@ -18,11 +19,55 @@
         #clock {
             font-size: 80px;
             color: #fff;
+            margin-bottom: 30px;
+        }
+
+        .alarm-inputs {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+
+        }
+
+        input {
+            width: 60px;
+            padding: 8px;
+            font-size: 18px;
+            text-align: center;
+            border: 2px solid grey;
+            border-radius: 5px;
+            background: transparent;
+            color: #fff;
+
+        }
+
+        button {
+            padding: 8px 20px;
+            font-size: 16px;
+            background: rgba(26, 37, 59, 0.8);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: rgba(30, 91, 154, 0.9);
         }
     </style>
 </head>
 <body>
     <div id="clock"></div>
+
+    <div class="alarm-inputs">
+        <input type="number" id="hours" min="0" max="23" placeholder="ГГ">
+        <span style="color: #fff; font-size: 20px;">:</span>
+        <input type="number" id="minutes" min="0" max="59" placeholder="ХХ">
+        <button id="setAlarmBtn">Встановити</button>
+    </div>
 
     <script src="script.js"></script>
 </body>
