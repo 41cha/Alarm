@@ -10,7 +10,7 @@ function updateClock() {
     alarmCheck(global_hours, global_minutes);
 }
 
-function setAlarm(hours, minutes) {
+function setAlarm(hours, minutes = 0) {
     localStorage.setItem('hours', String(hours).padStart(2, '0'));
     localStorage.setItem('minutes', String(minutes).padStart(2, '0'));
 }
@@ -21,10 +21,21 @@ function alarmCheck(currentHours, currentMinutes) {
 
     if (savedHours === currentHours && savedMinutes === currentMinutes) {
         alert('Час будильника!');
+
+        localStorage.removeItem('hours');
+        localStorage.removeItem('minutes');
     }
 }
 
-setAlarm(14, 26);
+document.getElementById('setAlarmBtn').addEventListener('click', () => {
+    let alarm_hours = document.getElementById('hours').value;
+    let alarm_minutes = document.getElementById('minutes').value;
+
+    if (alarm_hours && alarm_minutes) {
+        setAlarm(alarm_hours, alarm_minutes);
+    }
+});
+
 
 updateClock();
 setInterval(updateClock, 1000);
