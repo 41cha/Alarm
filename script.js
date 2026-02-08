@@ -20,6 +20,9 @@ function alarmCheck(currentHours, currentMinutes) {
     let savedMinutes = localStorage.getItem('minutes');
 
     if (savedHours === currentHours && savedMinutes === currentMinutes) {
+
+        const audio = new Audio('alarm.mp3');
+        audio.play();
         alert('Alarm time!');
 
         localStorage.removeItem('hours');
