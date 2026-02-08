@@ -20,7 +20,7 @@ function alarmCheck(currentHours, currentMinutes) {
     let savedMinutes = localStorage.getItem('minutes');
 
     if (savedHours === currentHours && savedMinutes === currentMinutes) {
-        alert('Час будильника!');
+        alert('Alarm time!');
 
         localStorage.removeItem('hours');
         localStorage.removeItem('minutes');
